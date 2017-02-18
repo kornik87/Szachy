@@ -43,9 +43,7 @@
   <ItemGroup>
     <Compile Include="Figure.cs" />
     <Compile Include="Table.cs" />
-    <Compile Include="..\..\Szachy2\Szachy\Program.cs">
-      <Link>Program.cs</Link>
-    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
