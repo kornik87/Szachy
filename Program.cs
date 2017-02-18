@@ -8,6 +8,7 @@ namespace Szachy
 {    
     class Program
     {           
+        //test commit in master branch
         static int TranslateX(ref int x)
         {
             if (x > 64 && x < 73)
