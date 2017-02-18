@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Szachy
 {    
     class Program
-        //test comment
     {           
         static int TranslateX(ref int x)
         {
