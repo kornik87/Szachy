@@ -26,7 +26,6 @@ namespace Szachy
         {
             Shape = null;
             Color = null;
-        }
-
+        }       
     }
 }

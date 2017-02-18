@@ -49,7 +49,7 @@ namespace Szachy
             int newX;
             int newY;
 
-            gameOver = false;
+            gameOver = false; //not used yet
             
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;

@@ -272,12 +272,12 @@ namespace Szachy
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
 
-            //krol -    I*I
-            //krolowa - /*\
-            //wierza -  |"|
-            //kon -     .%.
-            //goniec -  /-\
-            //pion -     i
+            //king/krol -    I*I
+            //queen/krolowa - /*\
+            //rock/wierza -  |"|
+            //knight/kon -     .%.
+            //bishop/goniec -  /-\
+            //pawn/pion -     i
 
             Console.WriteLine(); //EOL
             Console.WriteLine("Legenda:");
@@ -293,6 +293,4 @@ namespace Szachy
         }
 
     }
-
-
 }
