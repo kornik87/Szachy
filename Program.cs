@@ -43,13 +43,19 @@ namespace Szachy
         {
             Boolean debug;
             Boolean gameOver;
+            int moveCount;
             string request;
             int oldX;
             int oldY;
             int newX;
             int newY;
-
+            
             gameOver = false; //not used yet
+            moveCount = 0;
+            oldX = 0;
+            oldY = 0;
+            newX = 0;
+            newY = 0;
             
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
@@ -65,6 +71,10 @@ namespace Szachy
                 Table.DrawTable(debug);
                 Table.PrintLegend();
 
+                //if (moveCount != 0)
+                //{
+                //    Console.WriteLine("Poprzedni ruch: " + Table.chessTable[oldX, oldY].Name + "(" + oldX + oldY + ")" + " na " + Table.chessTable[newX, newY].Name + "(" + newX + newY + ")");
+                //}
                 Console.WriteLine("Wprowadz obecna i docelowa pozycje (A1A2)");
                 request = Convert.ToString(Console.ReadLine());
 
@@ -84,11 +94,10 @@ namespace Szachy
                     Console.WriteLine("[{0},{1}] -> [{2},{3}]", oldX, oldY, newX, newY);
                     break;
                 }
-
+                                
                 Table.chessTable[newX, newY] = Table.chessTable[oldX, oldY];
                 Table.chessTable[oldX, oldY] = null;
-
-
+                moveCount++;
             } while (gameOver == false);
             
             Console.ResetColor();
