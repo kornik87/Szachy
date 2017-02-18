@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Szachy
 {    
+    //test commit in feature branch
     class Program
     {           
         static int TranslateX(ref int x)
