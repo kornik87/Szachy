@@ -17,17 +17,19 @@ namespace Szachy
             get { return shape; }
             set {                 
                 if (value == " i ")
-                name = "pion";
+                    name = "pion";
                 else if (value == "/-\\")
-                name = "goniec";
+                    name = "goniec";
                 else if (value == " % ")
-                name = "kon";
+                    name = "kon";
                 else if (value == "|\"|")
-                name = "wierza";
+                    name = "wierza";
                 else if (value == "/*\\")
-                name = "krolowa";
+                    name = "krolowa";
                 else if (value == "I*I")
-                name = "krol";
+                    name = "krol";
+                else if (value == "   ")
+                    name = "puste";
 
                 shape = value; 
             }
