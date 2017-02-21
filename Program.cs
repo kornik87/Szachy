@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Szachy
 {    
+    //test commit in feature branch
     class Program
     {           
         //test commit in master branch
@@ -43,13 +44,22 @@ namespace Szachy
         {
             Boolean debug;
             Boolean gameOver;
+            int moveCount;
             string request;
+            string lastMoveInfo;
             int oldX;
             int oldY;
             int newX;
             int newY;
-
-            gameOver = false;
+            
+            // temp definitions
+            gameOver = false; //not used yet
+            moveCount = 0;
+            lastMoveInfo = "";
+            oldX = 0;
+            oldY = 0;
+            newX = 0;
+            newY = 0;
             
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
@@ -65,30 +75,49 @@ namespace Szachy
                 Table.DrawTable(debug);
                 Table.PrintLegend();
 
-                Console.WriteLine("Wprowadz obecna i docelowa pozycje (A1A2)");
+                if (debug == true)
+                {
+                    //adress after convert
+                    Console.WriteLine("[{0},{1}] -> [{2},{3}]", oldX, oldY, newX, newY);
+                }
+
+                if (moveCount != 0)
+                {
+                    Console.WriteLine("--------------------");
+                    Console.WriteLine(lastMoveInfo);
+                    Console.WriteLine("--------------------");
+                }
+
+                Console.WriteLine("Wprowadz obecna i docelowa pozycje (np. A1A2)");
                 request = Convert.ToString(Console.ReadLine());
 
                 oldX = request[0];
                 oldY = request[1];
                 newX = request[2];
                 newY = request[3];
-
+                
                 TranslateX(ref oldX);
                 TranslateY(ref oldY);
                 TranslateX(ref newX);
                 TranslateY(ref newY);
+                
+                lastMoveInfo = "Poprzedni ruch: "
+                    + Table.chessTable[oldX, oldY].Name + "(" + request[0] + request[1] + ")"
+                    + " na "
+                    + Table.chessTable[newX, newY].Name + "(" + request[2] + request[3] + ")";
 
                 if (debug == true)
                 {
                     //adress after convert
                     Console.WriteLine("[{0},{1}] -> [{2},{3}]", oldX, oldY, newX, newY);
-                    break;
                 }
-
+                                
+                //move!
                 Table.chessTable[newX, newY] = Table.chessTable[oldX, oldY];
-                Table.chessTable[oldX, oldY] = null;
+                Table.chessTable[oldX, oldY] = new Figure();
+                Table.chessTable[oldX, oldY].Shape = "   ";
 
-
+                moveCount++;
             } while (gameOver == false);
             
             Console.ResetColor();

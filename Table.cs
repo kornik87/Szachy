@@ -12,40 +12,15 @@ namespace Szachy
 
         public static void InitialPositions()
         {
-            chessTable[0, 7] = new Figure();
-            chessTable[1, 7] = new Figure();
-            chessTable[2, 7] = new Figure();
-            chessTable[3, 7] = new Figure();
-            chessTable[4, 7] = new Figure();
-            chessTable[5, 7] = new Figure();
-            chessTable[6, 7] = new Figure();
-            chessTable[7, 7] = new Figure();
-            chessTable[0, 6] = new Figure();
-            chessTable[1, 6] = new Figure();
-            chessTable[2, 6] = new Figure();
-            chessTable[3, 6] = new Figure();
-            chessTable[4, 6] = new Figure();
-            chessTable[5, 6] = new Figure();
-            chessTable[6, 6] = new Figure();
-            chessTable[7, 6] = new Figure();
 
-            chessTable[0, 1] = new Figure();
-            chessTable[1, 1] = new Figure();
-            chessTable[2, 1] = new Figure();
-            chessTable[3, 1] = new Figure();
-            chessTable[4, 1] = new Figure();
-            chessTable[5, 1] = new Figure();
-            chessTable[6, 1] = new Figure();
-            chessTable[7, 1] = new Figure();
-            chessTable[0, 0] = new Figure();
-            chessTable[1, 0] = new Figure();
-            chessTable[2, 0] = new Figure();
-            chessTable[3, 0] = new Figure();
-            chessTable[4, 0] = new Figure();
-            chessTable[5, 0] = new Figure();
-            chessTable[6, 0] = new Figure();
-            chessTable[7, 0] = new Figure();
-
+            for (int i = 0; i < 8; i++) //iterate column
+            {
+                for (int j = 0; j < 8; j++) //iterate row
+                {
+                    chessTable[i, j] = new Figure();
+                }
+            }
+            
             chessTable[0, 7].Shape = "|\"|";
             chessTable[1, 7].Shape = " % ";
             chessTable[2, 7].Shape = "/-\\";
@@ -112,7 +87,16 @@ namespace Szachy
             chessTable[4, 0].Color = "Black";
             chessTable[5, 0].Color = "Black";
             chessTable[6, 0].Color = "Black";
-            chessTable[7, 0].Color = "Black";                        
+            chessTable[7, 0].Color = "Black";
+
+            for (int i = 0; i < 8; i++) //iterate column
+            {
+                for (int j = 0; j < 8; j++) //iterate row
+                {
+                    if (chessTable[i, j].Shape == null)
+                        chessTable[i, j].Shape = "   ";
+                }
+            }
         }
 
         public static void DrawTable(bool debug)
@@ -199,7 +183,7 @@ namespace Szachy
                         if (i % 2 == 0) //iterate through even column (starting from 0)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.BackgroundColor = ConsoleColor.Black;
                             if (debug == true)
                             {
                                 Console.Write("{0},{1}", i, j); //debug
@@ -272,12 +256,12 @@ namespace Szachy
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
 
-            //krol -    I*I
-            //krolowa - /*\
-            //wierza -  |"|
-            //kon -     .%.
-            //goniec -  /-\
-            //pion -     i
+            //king/krol -    I*I
+            //queen/krolowa - /*\
+            //rock/wierza -  |"|
+            //knight/kon -     .%.
+            //bishop/goniec -  /-\
+            //pawn/pion -     i
 
             Console.WriteLine(); //EOL
             Console.WriteLine("Legenda:");
@@ -293,6 +277,4 @@ namespace Szachy
         }
 
     }
-
-
 }
