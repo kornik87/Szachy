@@ -12,7 +12,6 @@ namespace Szachy
 
         public static void InitialPositions()
         {
-
             for (int i = 0; i < 8; i++) //iterate column
             {
                 for (int j = 0; j < 8; j++) //iterate row
@@ -128,22 +127,15 @@ namespace Szachy
                             }
                             else
                             {
-                                if (chessTable[i, j] == null)
+                                if (chessTable[i, j].Color == "White")
                                 {
-                                    Console.Write("   ");
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                 }
-                                else
+                                else if (chessTable[i, j].Color == "Black")
                                 {
-                                    if (chessTable[i, j].Color == "White")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.Red;
-                                    }
-                                    else if (chessTable[i, j].Color == "Black")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                                    }
-                                    Console.Write(chessTable[i, j].Shape);                                    
+                                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                                 }
+                                Console.Write(chessTable[i, j].Shape);
                             }
                         }
                         else //iterate odd column (starting from 0)
@@ -156,22 +148,15 @@ namespace Szachy
                             }
                             else
                             {
-                                if (chessTable[i, j] == null)
+                                if (chessTable[i, j].Color == "White")
                                 {
-                                    Console.Write("   ");
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                 }
-                                else
+                                else if (chessTable[i, j].Color == "Black")
                                 {
-                                    if (chessTable[i, j].Color == "White")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.Red;
-                                    }
-                                    else if (chessTable[i, j].Color == "Black")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                                    }
-                                    Console.Write(chessTable[i, j].Shape);  
+                                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                                 }
+                                Console.Write(chessTable[i, j].Shape);
                             }
                         }
                     }
@@ -190,22 +175,15 @@ namespace Szachy
                             }
                             else
                             {
-                                if (chessTable[i, j] == null)
+                                if (chessTable[i, j].Color == "White")
                                 {
-                                    Console.Write("   ");
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                 }
-                                else
+                                else if (chessTable[i, j].Color == "Black")
                                 {
-                                    if (chessTable[i, j].Color == "White")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.Red;
-                                    }
-                                    else if (chessTable[i, j].Color == "Black")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                                    }
-                                    Console.Write(chessTable[i, j].Shape);  
+                                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                                 }
+                                Console.Write(chessTable[i, j].Shape);
                             }
                         }
                         else //iterate through odd column (starting from 0)
@@ -218,22 +196,15 @@ namespace Szachy
                             }
                             else
                             {
-                                if (chessTable[i, j] == null)
+                                if (chessTable[i, j].Color == "White")
                                 {
-                                    Console.Write("   ");
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                 }
-                                else
+                                else if (chessTable[i, j].Color == "Black")
                                 {
-                                    if (chessTable[i, j].Color == "White")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.Red;
-                                    }
-                                    else if (chessTable[i, j].Color == "Black")
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                                    }
-                                    Console.Write(chessTable[i, j].Shape);  
+                                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                                 }
+                                Console.Write(chessTable[i, j].Shape);
                             }
                         }
                     }
@@ -263,9 +234,9 @@ namespace Szachy
             //bishop/goniec -  /-\
             //pawn/pion -     i
 
-            Console.WriteLine(); //EOL
+            Console.WriteLine();
             Console.WriteLine("Legenda:");
-            Console.WriteLine(); //EOL
+            Console.WriteLine();
             Console.WriteLine("krol -    I*I");
             Console.WriteLine("krolowa - /*\\");
             Console.WriteLine("wierza -  |\"|");
@@ -273,7 +244,7 @@ namespace Szachy
             Console.WriteLine("goniec -  /-\\");
             Console.WriteLine("pion -     i");
 
-            Console.WriteLine(); //EOL
+            Console.WriteLine();
         }
 
     }
