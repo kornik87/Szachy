@@ -21,7 +21,7 @@ namespace Szachy
             //"A"==65; "H"==72
             //"1"==48; "8"==55
 
-            int allowed = 1;
+            int allowed;
             string figureName = Table.chessTable[oX, oY].Name;
 
             if (figureName == "krol")
@@ -143,8 +143,40 @@ namespace Szachy
 
         public static int KnightMove(int oX, int oY, int nX, int nY)
         {
-            //to do
-            return 1;
+            //to do:
+            //- sojusznik
+
+            //"A"==65; "H"==72
+            //"1"==48; "8"==55
+
+            if (
+                (
+                    (
+                        ((nX - oX) == -2) || ((nX - oX) == 2)
+                    )
+                    &&
+                    (
+                        ((nY - oY) == -1) || ((nY - oY) == 1)
+                    )
+                )
+                ||
+                (
+                    (
+                        ((nX - oX) == -1) || ((nX - oX) == 1)
+                    )
+                    &&
+                    (
+                        ((nY - oY) == -2) || ((nY - oY) == 2)
+                    )
+                )
+                )
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public static int BishopMove(int oX, int oY, int nX, int nY)

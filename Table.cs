@@ -120,6 +120,7 @@ namespace Szachy
                     {
                         if (i % 2 == 0) //iterate even column (starting from 0)
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.BackgroundColor = ConsoleColor.White;
                             if (debug == true)
                             {
@@ -168,7 +169,7 @@ namespace Szachy
                         if (i % 2 == 0) //iterate through even column (starting from 0)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                                Console.BackgroundColor = ConsoleColor.Black;
+                            Console.BackgroundColor = ConsoleColor.Black;
                             if (debug == true)
                             {
                                 Console.Write("{0},{1}", i, j); //debug
