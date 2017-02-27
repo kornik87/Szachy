@@ -107,7 +107,7 @@ namespace Szachy
                 }
                 else
                 {
-                    lastMoveInfo = "Poprzedni ruch: Niedozwolony!";
+                    lastMoveInfo = lastMoveInfo + " Niedozwolony!";
                 }
 
                 moveCount++;

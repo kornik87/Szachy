@@ -30,23 +30,23 @@ namespace Szachy
             }
             else if (figureName == "krolowa")
             {
-                QueenMove();
+                allowed = QueenMove(oX, oY, nX, nY);
             }
             else if (figureName == "wierza")
             {
-                RockMove();
+                allowed = RockMove(oX, oY, nX, nY);
             }
             else if (figureName == "kon")
             {
-                KnightMove();
+                allowed = KnightMove(oX, oY, nX, nY);
             }
             else if (figureName == "goniec")
             {
-                BishopMove();
+                allowed = BishopMove(oX, oY, nX, nY);
             }
             else if (figureName == "pion")
             {
-                PawnMove();
+                allowed = PawnMove(oX, oY, nX, nY);
             }
             else
             {
@@ -56,16 +56,27 @@ namespace Szachy
             return allowed;
         }
 
-        public static int KingMove(int nX, int nY, int oX, int oY)
+        public static int KingMove(int oX, int oY, int nX, int nY)
         {
-            //to do
+            //to do:
+            //1. roszada
+            //2. szach
+            //3. zablokowac ruch w to samo miejsce
+            //3. sojusznik
+            //4. przeszkoda z sojusznika
 
             //"A"==65; "H"==72
             //"1"==48; "8"==55
 
-            if (nX == oX + 1 || nX == oX || nX == oX - 1)
+            if (
+                ((nX - oX) >= -1) && 
+                ((nX - oX) <= 1)
+                )
             {
-                if (nY == oY + 1 || nY == oY || nY == oY - 1)
+                if (
+                    ((nY - oY) >= -1) && 
+                    ((nY - oY) <= 1)
+                    )
                 {
                     return 1;
                 }
@@ -80,29 +91,110 @@ namespace Szachy
             }
         }
 
-        public static void QueenMove()
+        public static int QueenMove(int oX, int oY, int nX, int nY)
         {
-            //to do
+            //to do:
+            //1. sojusznik
+            //2. przeszkoda z sojusznika
+            //3. zablokowac ruch w to samo miejsce
+
+            //"A"==65; "H"==72
+            //"1"==48; "8"==55
+
+            if (
+                ((nX > oX) && (nY > oY)) ||
+                ((nX < oX) && (nY < oY)) ||
+                ((nX > oX) && (nY < oY)) ||
+                ((nX < oX) && (nY > oY)) ||
+                ((nX - oX) == 0) ||
+                ((nY - oY) == 0)
+                )
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
-        public static void RockMove()
+        public static int RockMove(int oX, int oY, int nX, int nY)
         {
-            //to do
+            //to do:
+            //1. sojusznik
+            //2. przeszkoda z sojusznika
+            //3. zablokowac ruch w to samo miejsce
+
+            //"A"==65; "H"==72
+            //"1"==48; "8"==55
+
+            if (
+                ((nX - oX) == 0) || 
+                ((nY - oY) == 0)
+                )
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
-        public static void KnightMove()
+        public static int KnightMove(int oX, int oY, int nX, int nY)
         {
             //to do
+            return 1;
         }
 
-        public static void BishopMove()
+        public static int BishopMove(int oX, int oY, int nX, int nY)
         {
-            //to do
+            //to do:
+            //1. sojusznik
+            //2. przeszkoda z sojusznika
+            //3. zablokowac ruch w to samo miejsce
+
+            //"A"==65; "H"==72
+            //"1"==48; "8"==55
+
+            if (
+                ((nX > oX) && (nY > oY)) ||
+                ((nX < oX) && (nY < oY)) ||
+                ((nX > oX) && (nY < oY)) ||
+                ((nX < oX) && (nY > oY))
+                )
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
-        public static void PawnMove()
+        public static int PawnMove(int oX, int oY, int nX, int nY)
         {
-            //to do
+            //to do:
+            //- bicie
+            //- bicie w locie
+            //- zablokowac ruch w to samo miejsce
+            //- sojusznik
+            //- przeszkoda z sojusznika
+
+            //"A"==65; "H"==72
+            //"1"==48; "8"==55
+
+            if (
+                ((nY - oY) == 1)
+                // ((nX - oX) == -1) || ((nX - oX) == 1)) //bicie
+                )
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
